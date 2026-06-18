@@ -2,6 +2,8 @@
 #include <climits>
 #include "PetaWisata.cpp"
 
+using namespace std;
+
 void cariRuteTerpendek(int titik_awal, int titik_tujuan) {
 
     int jarakTerpendek[JUMLAH_LOKASI + 1];
@@ -43,13 +45,13 @@ void cariRuteTerpendek(int titik_awal, int titik_tujuan) {
     }
 
     if (jarakTerpendek[titik_tujuan] == INT_MAX) {
-        std::cout << "\n[!] Rute tidak dapat diakses!\n";
+        cout << "\n[!] Rute tidak dapat diakses!\n";
         return;
     }
 
-    std::cout << "\n=========================================\n";
-    std::cout << "Estimasi Jarak Tempuh : " << jarakTerpendek[titik_tujuan] << " meter\n";
-    std::cout << "Panduan Rute          : ";
+    cout << "\n=========================================\n";
+    cout << "Estimasi Jarak Tempuh : " << jarakTerpendek[titik_tujuan] << " meter\n";
+    cout << "Panduan Rute          : ";
 
     int urutan[JUMLAH_LOKASI + 1];
     int jumlahLangkah = 0;
@@ -62,8 +64,8 @@ void cariRuteTerpendek(int titik_awal, int titik_tujuan) {
     }
 
     for (int i = jumlahLangkah - 1; i >= 0; i--) {
-        std::cout << namaLokasi[urutan[i]];
-        if (i > 0) std::cout << " -> ";
+        cout << namaLokasi[urutan[i]];
+        if (i > 0) cout << " -> ";
     }
-    std::cout << "\n=========================================\n";
+    cout << "\n=========================================\n";
 }
